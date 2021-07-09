@@ -1,10 +1,13 @@
 import data.Item;
 
+import java.util.Scanner;
+
 public class Shop {
     public static void main(String[] args) {
         printHeader();
         Item[] items = initItems();
         printItems(items);
+        shopping();
     }
 
     private static Item[] initItems() {
@@ -22,6 +25,18 @@ public class Shop {
     private static void printItems(Item[] items) {
         for (Item item: items) {
             System.out.println(item.toString());
+        }
+    }
+
+    private static void shopping() {
+        boolean isShopping = true;
+        while(isShopping) {
+            System.out.println("To add an item simply type its name and hit enter");
+            System.out.println("To stop shopping simply type exit and hit enter");
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.nextLine().equals("exit")) {
+                isShopping = false;
+            }
         }
     }
 }
