@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Item {
     private final String name;
     private final String unit;
-    private final float cost;
+    private float cost;
     private int quantity;
 
     public Item(String name, String unit, float cost, int quantity) {
@@ -33,6 +33,10 @@ public class Item {
 
     public void setQuantity(int quantity) {
         this.quantity=quantity;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
     }
 
     @Override
