@@ -1,14 +1,18 @@
 package data;
 
+import java.util.Arrays;
+
 public class Item {
     private final String name;
     private final String unit;
     private final float cost;
+    private int quantity;
 
-    public Item(String name, String unit, float cost) {
+    public Item(String name, String unit, float cost, int quantity) {
         this.name = name;
         this.unit = unit;
         this.cost = cost;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -21,6 +25,14 @@ public class Item {
 
     public float getCost() {
         return cost;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity=quantity;
     }
 
     @Override
