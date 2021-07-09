@@ -1,7 +1,5 @@
 package data;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 
 public class Cart {
@@ -13,5 +11,12 @@ public class Cart {
 
     public void addItem(Item item) {
         this.cart.add(item);
+    }
+
+    public void showCart() {
+        System.out.print("Your cart: ");
+        for (Item item : this.cart) {
+            System.out.print(item.getQuantity() + " " + item.getName() + " ");
+        }
     }
 }
