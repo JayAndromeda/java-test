@@ -1,15 +1,17 @@
 package data;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 
 public class Cart {
-    ArrayList<Item> item;
+    ArrayList<Item> cart;
 
     public Cart() {
-        this.item = new ArrayList<>();
+        this.cart = new ArrayList<>();
     }
 
-    public void add(Item item) {
-        this.item.add(item);
+    public void addItem(Item item) {
+        this.cart.add(item);
     }
 }
