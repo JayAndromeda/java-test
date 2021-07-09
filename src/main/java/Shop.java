@@ -4,6 +4,7 @@ public class Shop {
     public static void main(String[] args) {
         printHeader();
         Item[] items = initItems();
+        printItems(items);
     }
 
     private static Item[] initItems() {
@@ -17,5 +18,10 @@ public class Shop {
 
     private static void printHeader() {
         System.out.println("Welcome to Henry's Shop");
+    }
+    private static void printItems(Item[] items) {
+        for (Item item: items) {
+            System.out.println(item.toString());
+        }
     }
 }
