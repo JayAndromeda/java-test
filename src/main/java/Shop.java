@@ -11,7 +11,8 @@ public class Shop {
         printHeader();
         List<Item> items = initItems();
         printItems(items);
-        shopping(items);
+        Cart cart = shopping(items);
+        checkout(cart);
     }
 
     private static List<Item> initItems() {
@@ -35,7 +36,7 @@ public class Shop {
         System.out.println(LINEBREAK);
     }
 
-    private static void shopping(List<Item> items) {
+    private static Cart shopping(List<Item> items) {
         boolean isShopping = true;
         boolean found = false;
         Cart cart = new Cart();
@@ -63,5 +64,13 @@ public class Shop {
                 System.out.println("item not found");
             }
         }
+        return cart;
     }
+
+    private static void checkout(Cart cart) {
+        cart.showCart();
+        cart.addPromotions();
+    }
+
+
 }

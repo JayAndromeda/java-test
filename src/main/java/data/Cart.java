@@ -19,4 +19,13 @@ public class Cart {
             System.out.print(item.getQuantity() + " " + item.getName() + " ");
         }
     }
+
+    public void addPromotions() {
+        for (Item item : this.cart) {
+            if (item.getName().equals("apples")) {
+                float promotionCost = .9f;
+                item.setCost(item.getCost()*promotionCost);
+            }
+        }
+    }
 }
