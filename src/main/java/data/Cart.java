@@ -20,12 +20,32 @@ public class Cart {
         }
     }
 
-    public void addPromotions() {
+    public ArrayList<Item> returnCartList() {
+        return this.cart;
+    }
+
+    public float addPromotions() {
+        boolean soupPromotionActive = false;
+        boolean hasBread = false;
+        float breadPromo = .5f;
+        float totalDiscount = 0f;
         for (Item item : this.cart) {
             if (item.getName().equals("apples")) {
-                float promotionCost = .9f;
-                item.setCost(item.getCost()*promotionCost);
+                float promotionCost = .1f;
+                totalDiscount+= (item.getCost()*promotionCost)*item.getQuantity();
+            }
+            if (item.getName().equals("soup") && item.getQuantity() >= 2) {
+                soupPromotionActive = true;
+            }
+            if (item.getName().equals("bread")) {
+                hasBread = true;
+                breadPromo = item.getCost()/2;
+            }
+            if (hasBread && soupPromotionActive) {
+               totalDiscount += breadPromo;
             }
         }
+        return totalDiscount;
     }
+
 }
