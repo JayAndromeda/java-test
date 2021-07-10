@@ -53,14 +53,37 @@ public class ShopTest {
 
     @Test
     public void applePromotionalPriceApplies() {
-        Item item = new Item("apples", "single", 0.85f, 2);
+        Item item = new Item("apples", "single", 0.1f, 2);
         Cart cart = new Cart();
 
         cart.addItem(item);
         cart.addPromotions();
 
-        float total = item.getCost() * item.getQuantity();
+        float total = getTotal(cart);
 
-        assertEquals(1.53f, total, 0);
+        assertEquals(.18f, total, 0.001);
+    }
+
+    @Test
+    public void soupPromotionAppliesOnceToBread() {
+        Item item1 = new Item("soup", "tin", 0.65f, 3);
+        Item item2 = new Item("bread", "loaf", 0.80f, 2);
+        Cart cart = new Cart();
+
+        cart.addItem(item1);
+        cart.addItem(item2);
+
+        float total = getTotal(cart);
+
+        assertEquals(3.15f, total, 0.001);
+    }
+
+    private float getTotal(Cart cart) {
+        float total = 0f;
+        for (Item item : cart.returnCartList()) {
+            total += item.getCost() * item.getQuantity();
+        }
+        total -= cart.addPromotions();
+        return total;
     }
 }
