@@ -1,6 +1,7 @@
 import data.Cart;
 import data.Item;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Shop {
@@ -17,7 +18,7 @@ public class Shop {
 
     private static List<Item> initItems() {
         Item[] items =  new Item[]{
-            new Item("soup", "can", 0.65f, 0),
+            new Item("soup", "tin", 0.65f, 0),
             new Item("bread", "loaf", 0.80f, 0),
             new Item("milk", "bottle", 1.30f,0 ),
             new Item("apples", "apple", 0.10f, 0)
@@ -69,8 +70,11 @@ public class Shop {
 
     private static void checkout(Cart cart) {
         cart.showCart();
-        cart.addPromotions();
+        System.out.println(LINEBREAK);
+        float discounts = cart.addPromotions();
+        float total = cart.total();
+        DecimalFormat formatter = new DecimalFormat("#.00");
+
+        System.out.println("Your shopping total is " + formatter.format(total));
     }
-
-
 }
