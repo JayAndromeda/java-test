@@ -78,6 +78,20 @@ public class ShopTest {
         assertEquals(3.15f, total, 0.001);
     }
 
+    @Test
+    public void sampleCartOne() {
+        Item item1 = new Item("apples", "single", 0.1f, 6);
+        Item item2 = new Item("milk", "bottle", 1.30f, 1);
+        Cart cart = new Cart();
+
+        cart.addItem(item1);
+        cart.addItem(item2);
+
+        float total = getTotal(cart);
+
+        assertEquals(1.84f, total, 0.001);
+    }
+
     private float getTotal(Cart cart) {
         float total = 0f;
         for (Item item : cart.returnCartList()) {
