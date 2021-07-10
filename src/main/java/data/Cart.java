@@ -47,5 +47,12 @@ public class Cart {
         }
         return totalDiscount;
     }
-
+    public float total() {
+        float total = 0f;
+        for (Item item : this.returnCartList()) {
+            total += item.getCost() * item.getQuantity();
+        }
+        total -= this.addPromotions();
+        return total;
+    }
 }
