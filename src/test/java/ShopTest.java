@@ -49,6 +49,18 @@ public class ShopTest {
         cart.showCart();
 
         assertEquals("Your cart: 2 apples 2 bread ", outContent.toString());
+    }
 
+    @Test
+    public void applePromotionalPriceApplies() {
+        Item item = new Item("apples", "single", 0.85f, 2);
+        Cart cart = new Cart();
+
+        cart.addItem(item);
+        cart.addPromotions();
+
+        float total = item.getCost() * item.getQuantity();
+
+        assertEquals(1.53f, total, 0);
     }
 }
