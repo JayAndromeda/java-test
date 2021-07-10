@@ -18,7 +18,6 @@ public class Cart {
         for (Item item : this.cart) {
             System.out.print(item.getQuantity() + " " + item.getName() + " ");
         }
-        System.out.println();
     }
 
     public ArrayList<Item> returnCartList() {
