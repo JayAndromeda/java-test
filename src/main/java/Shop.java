@@ -70,8 +70,8 @@ public class Shop {
 
     private static void checkout(Cart cart) {
         cart.showCart();
-        System.out.println(LINEBREAK);
         System.out.println();
+        System.out.println(LINEBREAK);
         float discounts = cart.addPromotions();
         float total = cart.total();
         DecimalFormat formatter = new DecimalFormat("#.00");
